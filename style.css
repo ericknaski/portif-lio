@@ -467,7 +467,7 @@ footer p {
   text-align: center;
 }
 
-;
+{
 from PIL import Image
 import math
 
@@ -485,4 +485,5 @@ for x in range(w):
             pixels[x, y] = 255
 
 img.putalpha(mask)
-img.save("Cefet1516_redonda.png")
+img.save("Cefet1516_redonda.png") }
+;
