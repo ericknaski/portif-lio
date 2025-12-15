@@ -468,3 +468,21 @@ footer p {
 }
 
 ;
+from PIL import Image
+import math
+
+img = Image.open("Cefet1518.png").convert("RGBA")
+w, h = img.size
+
+mask = Image.new("L", (w, h), 0)
+cx, cy = w // 2, h // 2
+r = min(w, h) // 2
+
+pixels = mask.load()
+for x in range(w):
+    for y in range(h):
+        if (x - cx)**2 + (y - cy)**2 <= r**2:
+            pixels[x, y] = 255
+
+img.putalpha(mask)
+img.save("Cefet1516_redonda.png")
